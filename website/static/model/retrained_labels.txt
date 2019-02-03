@@ -1,0 +1,12 @@
+carp
+channel catfish
+lake whitefish
+largemouth bass
+perch
+rockfish
+salmon
+shad
+trout
+tuna
+walleye
+white seabass
