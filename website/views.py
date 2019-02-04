@@ -59,7 +59,6 @@ def upload():
         img = cv2.imread(upload_path)
         rows = img.shape[0]
         cols = img.shape[1]
-        print(rows)
         if rows > cols:
             rows = 400
             cols = 300
