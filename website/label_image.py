@@ -23,17 +23,21 @@ import numpy as np
 import tensorflow as tf
 
 
-def load_graph(model_file):
-  graph = tf.Graph()
-  graph_def = tf.GraphDef()
+#def load_graph(model_file):
+#  graph = tf.Graph()
+#  graph_def = tf.GraphDef()
+#  with open(model_file, "rb") as f:
+#    graph_def.ParseFromString(f.read())
+#  with graph.as_default():
+#    tf.import_graph_def(graph_def)
+#  return graph
 
-  with open(model_file, "rb") as f:
-    graph_def.ParseFromString(f.read())
-  with graph.as_default():
-    tf.import_graph_def(graph_def)
-
-  return graph
-
+#def load_labels(label_file):
+#  label = []
+#  proto_as_ascii_lines = tf.gfile.GFile(label_file).readlines()
+#  for l in proto_as_ascii_lines:
+#    label.append(l.rstrip())
+#  return label
 
 def read_tensor_from_image_file(file_name,
                                 input_height=299,
@@ -64,26 +68,23 @@ def read_tensor_from_image_file(file_name,
   return result
 
 
-def load_labels(label_file):
-  label = []
-  proto_as_ascii_lines = tf.gfile.GFile(label_file).readlines()
-  for l in proto_as_ascii_lines:
-    label.append(l.rstrip())
-  return label
-
-
   #if __name__ == "__main__":
-def label_image(filename):
-  file_name = "tensorflow/examples/label_image/data/grace_hopper.jpg"
-  model_file = \
-    "tensorflow/examples/label_image/data/inception_v3_2016_08_28_frozen.pb"
-  label_file = "tensorflow/examples/label_image/data/imagenet_slim_labels.txt"
+def label_image(filename, mygraph, mylabels):
+  #file_name = "tensorflow/examples/label_image/data/grace_hopper.jpg"
+  #model_file = "tensorflow/examples/label_image/data/inception_v3_2016_08_28_frozen.pb"
+  #label_file = "tensorflow/examples/label_image/data/imagenet_slim_labels.txt"
+  #input_layer = "input"
+  #output_layer = "InceptionV3/Predictions/Reshape_1"
+  file_name = filename
+  graph = mygraph
+  labels = mylabels
+  input_layer = "Placeholder"
+  output_layer = "final_result"
+
   input_height = 299
   input_width = 299
   input_mean = 0
   input_std = 255
-  input_layer = "input"
-  output_layer = "InceptionV3/Predictions/Reshape_1"
 
   #parser = argparse.ArgumentParser()
   #parser.add_argument("--image", help="image to be processed")
@@ -97,32 +98,28 @@ def label_image(filename):
   #parser.add_argument("--output_layer", help="name of output layer")
   #args = parser.parse_args()
 
-  model_file = "static/model/retrained_graph.pb"
-  label_file = "static/model/retrained_labels.txt"
-  input_layer = "Placeholder"
-  output_layer = "final_result"
-  file_name = filename
+  #if args.graph:
+  #model_file = args.graph
+  #if args.image:
+  #file_name = args.image
+  #if args.labels:
+  #label_file = args.labels
+  #if args.input_height:
+  #input_height = args.input_height
+  #if args.input_width:
+  #input_width = args.input_width
+  #if args.input_mean:
+  #input_mean = args.input_mean
+  #if args.input_std:
+  #input_std = args.input_std
+  #if args.input_layer:
+  #input_layer = args.input_layer
+  #if args.output_layer:
+  #output_layer = args.output_layer
+  
+  #graph = load_graph(model_file)
+  #labels = load_labels(label_file)
 
-      #if args.graph:
-      #model_file = args.graph
-      #if args.image:
-      #file_name = args.image
-      #if args.labels:
-      #label_file = args.labels
-      #if args.input_height:
-      #input_height = args.input_height
-      #if args.input_width:
-      #input_width = args.input_width
-      #if args.input_mean:
-      #input_mean = args.input_mean
-      #if args.input_std:
-      #input_std = args.input_std
-      #if args.input_layer:
-      #input_layer = args.input_layer
-      #if args.output_layer:
-      #output_layer = args.output_layer
-
-  graph = load_graph(model_file)
   t = read_tensor_from_image_file(
       file_name,
       input_height=input_height,
@@ -141,7 +138,6 @@ def label_image(filename):
     })
   results = np.squeeze(results)
   top_k = results.argsort()[-5:][::-1]
-  labels = load_labels(label_file)
   outputs = []
   for i in top_k:
     outputs.append([labels[i],"%.3f" % (results[i])])

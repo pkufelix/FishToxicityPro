@@ -1,12 +1,15 @@
 from label_image import label_image
- 
+from load_mygraph import load_mygraph
+
 from flask import Flask,render_template,request,redirect,url_for,make_response,jsonify
 from werkzeug.utils import secure_filename
 import os
 import cv2
 
 from datetime import timedelta
- 
+
+
+mygraph,mylabels = load_mygraph()
 
 mercury = {'salmon': 'Mercury level (PPM): 0.022.', \
     'trout': 'Mercury level (PPM): 0.071.', \
@@ -67,7 +70,7 @@ def upload():
             cols = 400
         img = cv2.resize(img,(cols,rows))
         cv2.imwrite(os.path.join(basepath, 'static/images', 'test.jpg'), img)
-        results = label_image(upload_path)
+        results = label_image(upload_path, mygraph, mylabels)
         line_output1 = mercury[results[0][0]]
         line_output2 = sugg[results[0][0]]
 #return render_template('upload_ok.html',filepath = upload_path, useroutput1=out_sen[0], useroutput2=out_sen[1], useroutput3=out_sen[2], useroutput4='', lineoutput1=line_output1,lineoutput2=line_output2)
