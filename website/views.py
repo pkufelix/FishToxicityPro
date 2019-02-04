@@ -35,7 +35,7 @@ sugg = {'salmon': 'Having 2 servings per week may be OK', \
     'shad': 'Having 2 servings per week may be OK'
 }
 
-ALLOWED_EXTENSIONS = set(['jpg','jpeg'])
+ALLOWED_EXTENSIONS = set(['jpg','jpeg','png'])
  
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
@@ -55,8 +55,18 @@ def upload():
  
         upload_path = os.path.join(basepath, 'tmp/images',secure_filename(f.filename))
         f.save(upload_path)
-        
+
         img = cv2.imread(upload_path)
+        rows = img.shape[0]
+        cols = img.shape[1]
+        print(rows)
+        if rows > cols:
+            rows = 400
+            cols = 300
+        else:
+            rows = 300
+            cols = 400
+        img = cv2.resize(img,(cols,rows))
         cv2.imwrite(os.path.join(basepath, 'static/images', 'test.jpg'), img)
         results = label_image(upload_path)
         line_output1 = mercury[results[0][0]]
@@ -66,6 +76,4 @@ def upload():
     return render_template('upload.html')
  
 if __name__ == '__main__':
-    # app.debug = True
-#app.run(host = '0.0.0.0',port = 8987,debug= True)
-    app.run(debug= True)
+    app.run(host = '0.0.0.0',port = 5000,debug= True)

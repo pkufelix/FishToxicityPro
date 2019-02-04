@@ -68,7 +68,7 @@
     <div class = "container">
       <form  action="" method="POST" enctype='multipart/form-data' >
         <div class="form-group">
-          <img src="{{ url_for('static', filename= './images/test.jpg') }}" width="400" height="300" alt="oh no, fish is eaten by cat!"/>
+          <img src="{{ url_for('static', filename= './images/test.jpg') }}" alt="oh no, fish is eaten by cat!"/>
           <h3> It is a ... {{probresults[0][0]}}.</h3>
           <h3> Here are some possible types and their probability.</h3>
           <table>
@@ -86,17 +86,15 @@
             </tbody>
           </table>
           <br/>
-          <h3>{{lineoutput2}}</h3>
-          <br />
+          <h3>{{lineoutput2}}.</h3>
           <h5>Q: What is a serving?</h5>
-          <h5>A: 4 ounces for adult and 2 ounces for 4 - 7 years old children</h5>
+          <h5>A: 4 ounces for adult and 2 ounces for 4 - 7 years old children.</h5>
           <br />
-          <h3>{{lineoutput1}}</h3>
-          <br />
+          <h3>{{lineoutput1}}.</h3>
           <h5>Q: What is PPM?</h5>
           <h5>A: PPM means parts per million mercury. It is equilant to mg/kg here.</h5>
 	  <br />
-	  <h6>Data sources: FDA and EPA</h6>
+	  <h6>Data sources: FDA and EPA.</h6>
         </div>
       </form>
     </div>
