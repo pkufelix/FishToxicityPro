@@ -19,9 +19,14 @@ app.send_file_max_age_default = timedelta(seconds=1)
 @app.route('/', methods=['POST', 'GET'])
 def upload():
     if request.method == 'POST':
+        if 'file' not in request.files:
+            return render_template("upload.html")
         f = request.files['file']
-        if not (f and allowed_file(f.filename)):
-            return jsonify({"error": 1001, "msg": "jpg only!"})
+        if not allowed_file(f.filename):
+            return render_template("upload.html")
+
+        #if not (f and allowed_file(f.filename)):
+        #    return jsonify({"error": 1001, "msg": "jpg only!"})
  
         basepath = os.path.dirname(__file__)
         
