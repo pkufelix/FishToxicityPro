@@ -35,26 +35,29 @@
        border: 1px solid black;
        border-collapse: collapse;
       }
+      .pic {
+        float: left;
+        margin-right: 50px;
+      }
+      .textwithpic {
+        float: left;
+      }
     </style>
   </head>
 
   <body>
     <br>
     <div class="container">
-      <div class = "container">
-        <h3><font style="color:#009eff;"> FishToxicityPro</font></h3>
-      </div>
+      <h3><font style="color:#009eff;"> FishToxicityPro</font></h3>
     </div>
 
-    <div class="container">
-      <div class = "container">
-        <h2>Your image is here!</h2>
-        <img src="{{filepath}}" alt="oh no, fish is eaten by cat!">
+    <div class = "container">
+      <div class = "pic">
+        <img src="{{filepath}}" alt="oh no, fish is eaten by cat!" >
       </div>
-      <br>
-      <div class = "container">
-        <h3> It is a ... {{probresults[0][0]}}.</h3>
-        <h3> Here are some possible types and their probability.</h3>
+      <div class = "textwithpic">
+        <h3> It is a ... {{probresults[0][0]}}. </h3>
+        <p> Here are some possible types and their probability. </p>
         <table>
           <thead>
             <th>Label</th>
@@ -70,19 +73,24 @@
           </tbody>
         </table>
       </div>
+    </div>
+    <div style = "clear:both">
       <br>
-      <div class ="container">
-        <h3>{{lineoutput2}}</h3>
-        <p>Q: What is a serving?<br>A: 4 ounces for adult and 2 ounces for 4 - 7 years old children.</p>
-        <h3>{{lineoutput1}}</h3>
-        <p>Q: What is PPM?<br>A: PPM means parts per million mercury. It is equilant to mg/kg here.</p>
-        <h6>Data sources: FDA and EPA.</h6>
-        <a href="https://www.fda.gov/Food/ResourcesForYou/Consumers/ucm393070.htm">FDA & EPA Guide</a> <br>
-        <a href="https://www.fda.gov/downloads/Food/FoodborneIllnessContaminants/Metals/UCM536321.pdf">FDA & EPA Flyer</a>
-      </div>
-      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-      <script src="../static/js/bootstrap.min.js"></script>
-    </div> <!-- /.container--> 
+    </div>
+    <div class = "container">
+      <h4> {{lineoutput2}} </h4>
+      <h4> {{lineoutput1}} </h4>
+      <p> Q: What is a serving?
+      <br> A: 4 ounces for adult and 2 ounces for 4 - 7 years old children.
+      <br> Q: What is PPM?
+      <br>A: PPM means parts per million mercury. It is equilant to mg/kg here. </p>
+      <h6> Data sources: FDA and EPA. </h6>
+      <a href="https://www.fda.gov/Food/ResourcesForYou/Consumers/ucm393070.htm"> FDA &amp; EPA Guide </a> <br>
+      <a href="https://www.fda.gov/downloads/Food/FoodborneIllnessContaminants/Metals/UCM536321.pdf"> FDA &amp; EPA Flyer </a>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+ 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
