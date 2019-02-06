@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <meta name="description" content="Hao's Insight Project">
+    <meta name="author" content="Hao Zheng">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/icons/logo_32x32.png">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>FishToxicityPro - Seattle</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
@@ -39,70 +39,50 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">FishToxicityPro</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+    <br>
+    <div class="container">
+      <div class = "container">
+        <h3><font style="color:#009eff;"> FishToxicityPro</font></h3>
       </div>
-    </nav>
-<br><br>
+    </div>
 
-  <div class="container"> 
-    <div class="starter-template">
+    <div class="container">
+      <div class = "container">
         <h2>Your image is here!</h2>
-    </div>
-    <div class = "container">
-      <form  action="" method="POST" enctype='multipart/form-data' >
-        <div class="form-group">
-          <img src="{{ url_for('static', filename= './images/test.jpg') }}" alt="oh no, fish is eaten by cat!"/>
-          <h3> It is a ... {{probresults[0][0]}}.</h3>
-          <h3> Here are some possible types and their probability.</h3>
-          <table>
-            <thead>
-              <th>Label</th>
-              <th>Prob</th>
-            </thead>
-            <tbody>
-              {%- for row in probresults %}
-                <tr>
-                <td>{{row[0]}}</td>
-                <td>{{row[1]}}</td>
-                </tr>
-              {%- endfor %}
-            </tbody>
-          </table>
-          <br/>
-          <h3>{{lineoutput2}}.</h3>
-          <h5>Q: What is a serving?</h5>
-          <h5>A: 4 ounces for adult and 2 ounces for 4 - 7 years old children.</h5>
-          <br />
-          <h3>{{lineoutput1}}.</h3>
-          <h5>Q: What is PPM?</h5>
-          <h5>A: PPM means parts per million mercury. It is equilant to mg/kg here.</h5>
-	  <br />
-	  <h6>Data sources: FDA and EPA.</h6>
-        </div>
-      </form>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-
-  </div> <!-- /.container-->
+        <img src="{{filepath}}" alt="oh no, fish is eaten by cat!">
+      </div>
+      <br>
+      <div class = "container">
+        <h3> It is a ... {{probresults[0][0]}}.</h3>
+        <h3> Here are some possible types and their probability.</h3>
+        <table>
+          <thead>
+            <th>Label</th>
+            <th>Prob</th>
+          </thead>
+          <tbody>
+            {%- for row in probresults %}
+              <tr>
+              <td>{{row[0]}}</td>
+              <td>{{row[1]}}</td>
+              </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div class ="container">
+        <h3>{{lineoutput2}}</h3>
+        <p>Q: What is a serving?<br>A: 4 ounces for adult and 2 ounces for 4 - 7 years old children.</p>
+        <h3>{{lineoutput1}}</h3>
+        <p>Q: What is PPM?<br>A: PPM means parts per million mercury. It is equilant to mg/kg here.</p>
+        <h6>Data sources: FDA and EPA.</h6>
+        <a href="https://www.fda.gov/Food/ResourcesForYou/Consumers/ucm393070.htm">FDA & EPA Guide</a> <br>
+        <a href="https://www.fda.gov/downloads/Food/FoodborneIllnessContaminants/Metals/UCM536321.pdf">FDA & EPA Flyer</a>
+      </div>
+      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+      <script src="../static/js/bootstrap.min.js"></script>
+    </div> <!-- /.container--> 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
