@@ -26,29 +26,29 @@ def label_image(filename, graph, labels):
     # FDA mecury data
     mercury = {'salmon': 'Mercury level (PPM): 0.022.', \
     'trout': 'Mercury level (PPM): 0.071.', \
-    'white seabass': 'Mercury level (PPM): 0.354', \
-    'rockfish': 'Mercury level (PPM): 0.167', \
-    'tuna': 'Mercury level (PPM): 0.386', \
-    'largemouth bass': 'Mercury level (PPM): 0.167', \
-    'walleye': 'Methylmercury level (PPM): 0.16', \
-    'channel catfish': 'Mercury level (PPM): 0.024', \
-    'perch': 'Mercury level (PPM): 0.150', \
-    'carp': 'Mercury level (PPM): 0.110', \
-    'lake whitefish': 'Mercury level (PPM): 0.089', \
-    'shad': 'Mercury level (PPM): 0.038'
+    'white seabass': 'Mercury level (PPM): 0.354.', \
+    'rockfish': 'Mercury level (PPM): 0.167.', \
+    'tuna': 'Mercury level (PPM): 0.386.', \
+    'largemouth bass': 'Mercury level (PPM): 0.167.', \
+    'walleye': 'Methylmercury level (PPM): 0.16.', \
+    'channel catfish': 'Mercury level (PPM): 0.024.', \
+    'perch': 'Mercury level (PPM): 0.150.', \
+    'carp': 'Mercury level (PPM): 0.110.', \
+    'lake whitefish': 'Mercury level (PPM): 0.089.', \
+    'shad': 'Mercury level (PPM): 0.038.'
     }
-    sugg = {'salmon': 'Having 2 servings per week may be OK', \
-    'trout': 'Having 2 servings per week may be OK', \
-    'white seabass': 'Not recommended to eat more than 1 serving per a week', \
-    'rockfish': 'Not recommended to eat more than 1 serving per a week', \
-    'tuna': 'Women who are or may become pregnant, nursing mothers, and young children should NOT eat', \
-    'largemouth bass': 'Not recommended to eat more than 1 serving per a week', \
-    'walleye': 'Having 2 servings per week may be OK', \
-    'channel catfish': 'Having 2 servings per week may be OK', \
-    'perch': 'Not recommended to eat more than 1 serving per a week', \
-    'carp': 'Not recommended to eat more than 1 serving per a week', \
-    'lake whitefish': 'Not recommended to eat more than 1 serving per a week', \
-    'shad': 'Having 2 servings per week may be OK'
+    sugg = {'salmon': 'Having 2 servings per week may be OK.', \
+    'trout': 'Having 2 servings per week may be OK.', \
+    'white seabass': 'Not recommended to eat more than 1 serving per a week.', \
+    'rockfish': 'Not recommended to eat more than 1 serving per a week.', \
+    'tuna': 'Women who are or may become pregnant, nursing mothers, and young children should NOT eat.', \
+    'largemouth bass': 'Not recommended to eat more than 1 serving per a week.', \
+    'walleye': 'Having 2 servings per week may be OK.', \
+    'channel catfish': 'Having 2 servings per week may be OK.', \
+    'perch': 'Not recommended to eat more than 1 serving per a week.', \
+    'carp': 'Not recommended to eat more than 1 serving per a week.', \
+    'lake whitefish': 'Not recommended to eat more than 1 serving per a week.', \
+    'shad': 'Having 2 servings per week may be OK.'
     }
     
     
