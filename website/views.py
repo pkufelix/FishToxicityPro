@@ -41,18 +41,19 @@ def upload():
             results,line_output1,line_output2 = label_image(upload_path, graph, labels)
             upload_path = os.path.join(basepath, 'static/images/test.jpg')
         if "example1" in request.form:
-            print("NUMBER 1")
             upload_path = os.path.join(basepath, 'static/images/ex1.jpg')
             results, line_output1, line_output2 = load_example(1)
         if "example2" in request.form:
-            print("NUMBER 2")
             upload_path = os.path.join(basepath, 'static/images/ex2.jpg')
             results, line_output1, line_output2 = load_example(2)
         if "example3" in request.form:
-            print("NUMBER 3")
             upload_path = os.path.join(basepath, 'static/images/ex3.jpg')
             results, line_output1, line_output2 = load_example(3)
-        return render_template('upload_ok.html', filepath = upload_path, probresults = results, lineoutput1 = line_output1, lineoutput2 = line_output2)
+        if int(results[0][1][:2]) < 50:
+            conf = 'FishToxicityPro is not sure about its prediction!!'
+        else:
+            conf = 'It is a ... %s!' % results[0][0]
+        return render_template('upload_ok.html', filepath = upload_path, probresults = results, confidence = conf, lineoutput1 = line_output1, lineoutput2 = line_output2)
     return render_template('upload.html')
  
 if __name__ == '__main__':

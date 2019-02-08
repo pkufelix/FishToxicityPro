@@ -2,6 +2,7 @@
 # return the probability matrix and strings back to html
 
 import numpy as np
+import math
 import tensorflow as tf
 import cv2
 import os
@@ -83,5 +84,6 @@ def label_image(filename, graph, labels):
     top_k = results.argsort()[-5:][::-1]
     outputs = []
     for i in top_k:
-        outputs.append([labels[i],"%.3f" % (results[i])])
+        outputs.append([labels[i],"%2d%%" % math.floor(results[i]*100)])
+    print(outputs)
     return(outputs,mercury[outputs[0][0]],sugg[outputs[0][0]])
